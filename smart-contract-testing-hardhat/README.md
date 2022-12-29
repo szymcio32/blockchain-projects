@@ -1,13 +1,18 @@
-# Sample Hardhat Project
+# Smart Contract Hardhat Testing Project
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+This project was created in order to learn how to write tests using Hardhat.
 
-Try running some of the following tasks:
+Covered test cases:
+- contract deployment
+- correct contract's initial balance setup
+- revert invocation
+- event invokcation
+- contract's balance change
+- contract removal
+- only owner check
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.ts
-```
+Used features:
+- fixture
+- contract mock
+- deployment and testing on goerli network 
+
