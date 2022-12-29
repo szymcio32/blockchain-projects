@@ -1,0 +1,55 @@
+type Factory @entity {
+  id: ID!
+  totalLiquidityUSD: BigDecimal!
+  volumeUSD: BigDecimal!
+  pairCount: Int!
+}
+
+type Token @entity {
+  id: ID!
+  symbol: String!
+  name: String!
+  decimals: BigInt!
+}
+
+type Pair @entity {
+  id: ID!
+  name: String!
+  token0: Token!
+  token1: Token!
+  reserve0: BigDecimal!
+  reserve1: BigDecimal!
+  token0Price: BigDecimal!
+  token1Price: BigDecimal!
+  totalLiquidityUSD: BigDecimal!
+  volumeUSD: BigDecimal!
+  liquidityPositions: [LiquidityPosition!]! @derivedFrom(field: "pair")
+}
+
+type Swap @entity {
+  id: ID!
+  pair: Pair!
+  timestamp: BigInt!
+  token0Symbol: String!
+  token1Symbol: String!
+  amount0In: BigDecimal!
+  amount1In: BigDecimal!
+  amount0Out: BigDecimal!
+  amount1Out: BigDecimal!
+  sender: String!
+  to: String!
+  amountUSD: BigDecimal!
+}
+
+type User @entity {
+  id: ID!
+  liquidityPositions: [LiquidityPosition!] @derivedFrom(field: "user")
+}
+
+type LiquidityPosition @entity {
+  id: ID!
+  pair: Pair
+  user: User!
+  balance: BigDecimal!
+  createdAtTimestamp: BigInt!
+}
