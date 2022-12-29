@@ -13,6 +13,7 @@ Covered test cases:
 
 Used features:
 - fixture
+- before function
 - contract mock
 - deployment and testing on goerli network 
 
