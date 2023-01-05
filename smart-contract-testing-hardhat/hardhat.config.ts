@@ -1,17 +1,16 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import { config as dotEnvConfig } from "dotenv"
+import "solidity-coverage";
 
 dotEnvConfig()
 
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
   networks: {
-    hardhat: {
-    },
     goerli: {
-      url: process.env.GOERLI_RPC_URL,
-      accounts: [process.env.PRIVATE_KEY],
+      url: process.env.GOERLI_RPC_URL || '',
+      accounts: process.env.PRIVATE_KEY,
       allowUnlimitedContractSize: true
     }
   },
